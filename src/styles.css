@@ -1,0 +1,194 @@
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: Inter, sans-serif;
+  --text-color: #cfd8dc;
+  color: var(--text-color);
+  --color-primary: #d500f9;
+  --color-secondary: #3d5afe;
+  --color-danger: #dc3545;
+  background-color: black;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  background-color: #11171a;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  width: max(20rem, 60%);
+  max-width: 40rem;
+  height: 75%;
+  overflow: overlay;
+}
+
+.content::-webkit-scrollbar {
+  width: 5px;
+}
+
+.content::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+.content::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+.content::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.content h1 {
+  text-align: center;
+  color: white;
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: var(--color-secondary);
+}
+
+.content p {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+#todo-form {
+  display: flex;
+  justify-content: center;
+}
+
+.todo-input {
+  font-size: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.25rem 0 0 0.25rem;
+  border: 3px solid transparent;
+  transition: all 0.3s;
+}
+
+.todo-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.todo-btn {
+  position: relative;
+  cursor: pointer;
+  background-color: var(--color-secondary);
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  border-left: 1px solid black;
+  width: 2.5rem;
+  border-radius: 0 0.25rem 0.25rem 0;
+  transition: color 0.3s;
+}
+
+.todo-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: white;
+  width: 0;
+  height: 100%;
+  transition: all 0.3s;
+  border-radius: 0 0.25rem 0.25rem 0;
+}
+
+.todo-btn:hover,
+.todo-btn:focus {
+  color: black;
+}
+
+.todo-btn:hover::before,
+.todo-btn:focus::before {
+  width: 100%;
+}
+
+.todo-btn span {
+  position: relative;
+}
+
+.todo-btn:focus {
+  outline: none;
+}
+
+.todo-container {
+  position: relative;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  width: 90%;
+  margin: 1rem auto;
+  background-color: white;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  color: black;
+}
+
+.todo-container:empty {
+  display: none;
+}
+
+.todo {
+  display: flex;
+}
+
+.toggle-btn {
+  position: relative;
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid #f5f5ff;
+  flex-grow: 1;
+  font-size: 1rem;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+.toggle-btn::before {
+  content: "";
+  background-color: black;
+  height: 2px;
+  margin-inline: 0.25rem;
+  width: 0;
+  position: absolute;
+  left: 0;
+  top: calc(50% - 1px);
+  transition: all 0.5s;
+}
+
+.todo.done .toggle-btn::before {
+  width: calc(100% - 0.5rem);
+}
+
+.toggle-btn:hover {
+  background-color: #f5f5ff;
+}
+
+.toggle-btn:hover {
+  outline: none;
+}
+
+.delete-btn {
+  width: 2rem;
+  background-color: var(--color-danger);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.delete-btn:hover {
+  background-color: red;
+}
